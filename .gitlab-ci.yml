@@ -17,4 +17,4 @@ build:
     - docker build -t $IMAGE_TAG .
     - docker push $IMAGE_TAG
     - docker tag $IMAGE_TAG $CI_REGISTRY_IMAGE:latest
-    - docker push $IMAGE_TAG $CI_REGISTRY_IMAGE:latest
+    - docker push $CI_REGISTRY_IMAGE:latest
