@@ -9,7 +9,7 @@ For use docker-prerender you should configure your HTTP server for redirect requ
 ### Docker or docker-compose
 
 ```
-docker run -d -p 8080:8080 registry.eoko-lab.fr/eoko/docker-prerender:latest
+docker run -d -p 8080:8080 deuxmax/docker-prerender:latest
 ```
 
 ```
@@ -24,7 +24,7 @@ services:
             - prerender
     
     prerender:
-        image: registry.eoko-lab.fr/eoko/docker-prerender:latest
+        image: deuxmax/docker-prerender:latest
         restart: always
 ```
 
@@ -39,7 +39,7 @@ location / {
 
 location @prerender {
     set $prerender 0;
-    if ($http_user_agent ~* "googlebot|yahoo|bingbot|yandex|yeti|yodaobot|gigabot|ia_archiver|facebookexternalhit|developers\.google\.com|baiduspider|twitterbot|rogerbot|linkedinbot|embedly|quora link preview|showyoubot|outbrain|pinterest|slackbot|vkShare|W3C_Validator") {
+    if ($http_user_agent ~* "googlebot|bingbot|yandex|baiduspider|twitterbot|facebookexternalhit|rogerbot|linkedinbot|embedly|quora link preview|showyoubot|outbrain|pinterest\/0\.|pinterestbot|slackbot|vkShare|W3C_Validator|whatsapp") {
         set $prerender 1;
     }
     if ($args ~ "_escaped_fragment_") {
@@ -65,7 +65,7 @@ location @prerender {
 
 *From : [https://gist.github.com/thoop/8165802](https://gist.github.com/thoop/8165802)*
 
-## Install
+## Install from source
 
 Clone source :
 
@@ -76,5 +76,6 @@ git clone git@gitlab.eoko-lab.fr:eoko/docker-prerender.git
 Install packages :
 
 ```bash
-npm i
+nvm install
+npm install
 ```
