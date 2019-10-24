@@ -6,6 +6,7 @@ const server = prerender({
   port: 8080,
   followRedirect: true,
   debug: true,
+  logRequests: true,
   chromeLocation: puppeteer.executablePath(),
 });
 
