@@ -21,7 +21,7 @@
   "author": "Maxime Maillet <maxime.maillet@eoko.fr>",
   "license": "ISC",
   "dependencies": {
-    "prerender": "^5.2.2",
+    "prerender": "^5.20.1",
     "puppeteer": "^1.20.0"
   }
 }
